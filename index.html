@@ -3,366 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan de Trabajo Detallado | Consejo Asesor de la Sociedad Civil - UBPD</title>
+    <title>Plan de Trabajo 2025-2026 | Consejo Asesor UBPD</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Estilos Generales */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
         :root {
-            --color-verde-oscuro: #2E4F4F;
-            --color-verde-principal: #0E8388;
-            --color-morado-principal: #635985;
-            --color-morado-claro: #E9E3FF;
-            --color-fondo: #F4F7F6;
-            --color-texto: #333333;
-            --color-blanco: #FFFFFF;
-            --sombra-caja: 0 6px 12px rgba(0,0,0,0.1);
+            --primary-purple: #4D2C5E; /* Morado profundo */
+            --primary-purple-light: #6a4a7d;
+            --accent-green: #1FAB89;   /* Verde jade */
+            --accent-green-dark: #1A8C74;
+            --bg-color: #f4f6f8;
+            --card-bg-color: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border-color: #e0e4e8;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 5px 15px rgba(77, 44, 94, 0.1);
+            --gradient-hero: linear-gradient(135deg, rgba(77, 44, 94, 0.95), rgba(106, 74, 125, 0.9));
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Encabezado */
-        header {
-            background: linear-gradient(90deg, var(--color-verde-oscuro), var(--color-morado-principal));
-            color: var(--color-blanco);
-            padding: 2.5rem 1.5rem;
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 100px 20px;
             text-align: center;
         }
+        .hero-section h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; }
+        .hero-section p { font-size: 1.25rem; font-weight: 300; max-width: 800px; margin: 0 auto; opacity: 0.9; }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            font-weight: 700;
+        /* --- Stats Dashboard --- */
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: -50px;
+            position: relative; z-index: 10;
         }
-
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1.3rem;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        /* Contenedor Principal */
-        .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Cuadro de Introducción */
-        .intro-cuadro {
-            background-color: var(--color-blanco);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--sombra-caja);
+        .stat-card {
+            background: var(--card-bg-color);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
             text-align: center;
-            margin-bottom: 2.5rem;
-            border-left: 7px solid var(--color-verde-principal);
+            border-top: 4px solid var(--accent-green);
+            animation: fadeIn 0.5s ease-out both;
+        }
+        .stat-card .icon { font-size: 2.5rem; color: var(--primary-purple); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 3rem; font-weight: 700; color: var(--primary-purple); }
+        .stat-card p { font-size: 1rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; }
+
+        /* --- Main Content Area --- */
+        .main-content { padding: 60px 0; }
+        .controls-section {
+            background: var(--card-bg-color);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+        .search-wrapper { position: relative; }
+        #search-input {
+            width: 100%;
+            padding: 18px 20px 18px 55px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 4px rgba(77, 44, 94, 0.1);
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
         }
 
-        .intro-cuadro h2 {
-            color: var(--color-verde-oscuro);
-            margin-top: 0;
-            font-size: 2rem;
-        }
-
-        /* Contenedor de los Cuadros de Trabajo */
-        .plan-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-
-        /* Estilo de cada Cuadro de Línea de Trabajo */
-        .cuadro-trabajo {
-            background-color: var(--color-blanco);
-            border-radius: 10px;
-            box-shadow: var(--sombra-caja);
-            overflow: hidden; /* Para que el borde del header del cuadro se ajuste al radio */
-            transition: transform 0.3s ease;
+        /* --- Table Container --- */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            padding: 20px;
         }
         
-        .cuadro-trabajo:hover {
-            transform: translateY(-5px);
-        }
-
-        .cuadro-header {
-            background-color: var(--color-morado-principal);
-            color: var(--color-blanco);
-            padding: 1rem 1.5rem;
-        }
-
-        .cuadro-header h3 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .cuadro-contenido {
-            padding: 1.5rem;
-        }
-        
-        /* Tabla de Información */
-        table {
+        .work-plan-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
         }
 
-        th, td {
+        .work-plan-table thead {
+            background-color: var(--primary-purple);
+            color: white;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .work-plan-table th, .work-plan-table td {
+            padding: 15px;
             text-align: left;
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid var(--border-color);
             vertical-align: top;
         }
 
-        thead tr {
-            background-color: var(--color-morado-claro);
-            color: var(--color-morado-principal);
+        .work-plan-table tbody tr:nth-child(even) {
+            background-color: var(--bg-color);
+        }
+        
+        .work-plan-table tbody tr:hover {
+            background-color: #e9e4eb;
+        }
+
+        .work-plan-table td[rowspan] {
             font-weight: 600;
-        }
-        
-        tbody tr:last-child th,
-        tbody tr:last-child td {
-            border-bottom: none;
+            color: var(--primary-purple);
+            vertical-align: middle;
+            background-color: #fdfcff;
         }
 
-        td ul {
-            list-style-type: '› ';
-            padding-left: 20px;
-            margin: 0;
-        }
-        
-        td ul li {
-            margin-bottom: 8px;
-        }
-        
-        /* Cuadro Transversal */
-        .cuadro-transversal {
-            background-color: var(--color-verde-oscuro);
-            color: var(--color-blanco);
-        }
-        
-        .cuadro-transversal .cuadro-header {
-             background-color: var(--color-verde-principal);
-        }
-
-        /* Pie de Página */
-        footer {
+        .no-results {
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            background-color: #e0e0e0;
-            color: #555;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- Responsive Table --- */
+        @media (max-width: 992px) {
+            .table-container { padding: 0; }
+            .work-plan-table thead {
+                display: none;
+            }
+            .work-plan-table, .work-plan-table tbody, .work-plan-table tr, .work-plan-table td {
+                display: block;
+                width: 100%;
+            }
+            .work-plan-table tr {
+                margin-bottom: 20px;
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            .work-plan-table td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                border-bottom: 1px dotted var(--border-color);
+            }
+            .work-plan-table td:last-child {
+                border-bottom: 0;
+            }
+            .work-plan-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 15px;
+                width: calc(50% - 30px);
+                text-align: left;
+                font-weight: 600;
+                color: var(--primary-purple);
+            }
+            .work-plan-table td[rowspan] {
+                display: none;
+            }
+             .work-plan-table tr {
+                background-color: white !important;
+             }
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            background: var(--primary-purple);
+            color: white;
             font-size: 0.9rem;
         }
-
+        .footer p { opacity: 0.7; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Plan de Trabajo Detallado 2025-2026</h1>
-        <p>Propuesta del Consejo Asesor de la Sociedad Civil para la Unidad de Búsqueda de Personas dadas por Desaparecidas</p>
+    <header class="hero-section">
+        <h1>Plan de Trabajo 2025-2026</h1>
+        <p>Iniciativas y compromisos del Consejo Asesor para la búsqueda de personas desaparecidas en Colombia.</p>
     </header>
 
-    <main class="container">
-
-        <section class="intro-cuadro">
-            <h2>Nuestra Hoja de Ruta para la Incidencia y la Acción</h2>
-            <p>Presentamos las líneas de acción prioritarias para fortalecer la búsqueda humanitaria y extrajudicial en Colombia. Este plan es el resultado del consenso de la sociedad civil y busca articular esfuerzos, reformar marcos normativos y garantizar la participación efectiva de las víctimas en la construcción de paz.</p>
+    <div class="container">
+        <section class="stats-dashboard">
+            <div class="stat-card" style="animation-delay: 0.1s;">
+                <div class="icon"><i class="fa-solid fa-sitemap"></i></div>
+                <h3 id="stat-lineas">0</h3>
+                <p>Líneas Estratégicas</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.2s;">
+                <div class="icon"><i class="fa-solid fa-layer-group"></i></div>
+                <h3 id="stat-temas">0</h3>
+                <p>Temas de Trabajo</p>
+            </div>
+            <div class="stat-card" style="animation-delay: 0.3s;">
+                <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3 id="stat-actividades">0</h3>
+                <p>Total de Actividades</p>
+            </div>
         </section>
 
-        <div class="plan-container">
-
-            <!-- Cuadro 1: Ajuste Normativo -->
-            <article class="cuadro-trabajo">
-                <div class="cuadro-header">
-                    <h3>Línea 1: Ajuste Normativo Institucional</h3>
+        <main class="main-content">
+            <section class="controls-section">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Buscar en la tabla del plan de trabajo...">
                 </div>
-                <div class="cuadro-contenido">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width:25%;">Temas Clave</th>
-                                <th style="width:45%;">Actividades Estratégicas</th>
-                                <th style="width:30%;">Responsables y Entidades</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Modificación DL 589/2017</strong><br>(Proyecto Ley #37/2024)</td>
-                                <td>
-                                    <ul>
-                                        <li>Presentación de ponencia de incidencia en el Congreso.</li>
-                                        <li>Instalación de mesas de trabajo con UTL de la Comisión de DDHH del Congreso.</li>
-                                    </ul>
-                                </td>
-                                <td>Gloria Cuartas, Lourdes Castro, Juan Villalba, MinJusticia, Sociedad Civil CA</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Registro de Buscadores</strong><br>(Ley 2364/2024)</td>
-                                <td>
-                                    <ul>
-                                        <li>Mesa de trabajo con organizaciones que lideraron la ley para su implementación.</li>
-                                        <li>Solicitar a la Corte Constitucional la revisión de la ley para reconocer formalmente a los hombres buscadores.</li>
-                                    </ul>
-                                </td>
-                                <td>Nidya Erika Bautista, Juan Villalba, MinJusticia, y otras organizaciones</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Definición de Persona Buscadora</strong></td>
-                                <td>
-                                    <ul>
-                                        <li>Solicitud formal de concepto a la Corte Constitucional para unificar la definición.</li>
-                                    </ul>
-                                </td>
-                                <td>Juan Villalba, MinJusticia</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
-
-            <!-- Cuadro 2: Fortalecimiento y Articulación -->
-            <article class="cuadro-trabajo">
-                <div class="cuadro-header">
-                    <h3>Línea 2: Fortalecimiento y Articulación para la Búsqueda</h3>
-                </div>
-                <div class="cuadro-contenido">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width:25%;">Temas Clave</th>
-                                <th style="width:45%;">Actividades Estratégicas</th>
-                                <th style="width:30%;">Responsables y Entidades</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Atención y Acompañamiento Psicosocial</strong></td>
-                                <td>
-                                    <ul>
-                                        <li>Mesas territoriales con el MinSalud para crear una línea del PAPSIVI enfocada en víctimas de desaparición forzada.</li>
-                                        <li>Seguimiento a la Política Pública de Atención Psicosocial (modificación Art. 136 Ley 1448/2011).</li>
-                                    </ul>
-                                </td>
-                                <td>Maritza Isaza, Leandro Ríos, Consejo Asesor, MSPS</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Lineamientos de Participación</strong></td>
-                                <td>
-                                    <ul>
-                                        <li>Revisión de lineamientos para la formulación de planes regionales de búsqueda.</li>
-                                        <li>Revisión de lineamientos para la participación y enfoques diferenciales.</li>
-                                        <li>Socialización de enfoques y avances técnico-forenses para el Consejo Asesor.</li>
-                                    </ul>
-                                </td>
-                                <td>Gloria Galíndez, Carlos Zapata, UBPD, DTCVED, DTPRI</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
+            </section>
             
-            <!-- Cuadro 3 y 4: Información y Diálogo -->
-             <article class="cuadro-trabajo">
-                <div class="cuadro-header">
-                    <h3>Líneas 3 y 4: Acceso a la Información y Participación en Diálogos</h3>
+            <div class="table-container">
+                <table class="work-plan-table">
+                    <thead>
+                        <tr>
+                            <th>Línea Estratégica</th>
+                            <th>Tema</th>
+                            <th>Actividad</th>
+                            <th>Indicadores</th>
+                            <th>Verificación</th>
+                            <th>Frecuencia</th>
+                            <th>Responsables</th>
+                        </tr>
+                    </thead>
+                    <tbody id="plan-tbody">
+                        <!-- Contenido generado por JavaScript -->
+                    </tbody>
+                </table>
+                <div id="no-results-container" style="display: none;">
+                   <div class="no-results"><i class="fa-solid fa-face-sad-tear"></i><p>No se encontraron resultados para su búsqueda.</p></div>
                 </div>
-                <div class="cuadro-contenido">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width:25%;">Temas Clave</th>
-                                <th style="width:45%;">Actividades Estratégicas</th>
-                                <th style="width:30%;">Responsables y Entidades</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Acceso a Información Relevante (Registro e Interoperabilidad)</strong></td>
-                                <td>
-                                    <ul>
-                                        <li>Solicitud de avances sobre el "módulo para la paz" a la UARIV y UBPD.</li>
-                                        <li>Crear espacios para desarrollar una aplicación que permita el seguimiento a la búsqueda.</li>
-                                    </ul>
-                                </td>
-                                <td>UARIV, UBPD (Gabriel Burbano, Ramón Valenzuela)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Participación en la Paz Total</strong></td>
-                                <td>
-                                    <ul>
-                                        <li>Diálogos con la Unidad de Implementación para justificar la participación del Consejo.</li>
-                                        <li>Solicitud formal al Comisionado de Paz para la inclusión del Consejo Asesor en las mesas.</li>
-                                    </ul>
-                                </td>
-                                <td>Lourdes Castro, Gloria Cuartas</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Participación en el Sistema Nacional de Búsqueda (SNB)</strong></td>
-                                <td>
-                                    <ul>
-                                        <li>Comunicación al MinJusticia para que un miembro del Consejo Asesor integre la comisión asesora del SNB.</li>
-                                        <li>Generar espacio de incidencia directa con el Ministro de Justicia.</li>
-                                    </ul>
-                                </td>
-                                <td>UBPD-ST, Juan Villalba, MinJusticia</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
+            </div>
+        </main>
+    </div>
 
-
-            <!-- Cuadro 5: Transversal -->
-            <article class="cuadro-trabajo cuadro-transversal">
-                <div class="cuadro-header">
-                    <h3>Eje Transversal: Comunicación y Pedagogía para la Incidencia</h3>
-                </div>
-                <div class="cuadro-contenido">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width:70%;">Acciones de Comunicación</th>
-                                <th style="width:30%;">Responsables</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Creación de un podcast para explicar la modificación al DL 589/2017.</td>
-                                <td>Consejo Asesor</td>
-                            </tr>
-                             <tr>
-                                <td>Producción de piezas audiovisuales sobre el manejo de cementerios (Directiva 024/2021 y Res. 5194/2010).</td>
-                                <td>Consejo Asesor</td>
-                            </tr>
-                             <tr>
-                                <td>Estrategia para posicionar la Desaparición Forzada en los debates presidenciales y públicos.</td>
-                                <td>Consejo Asesor</td>
-                            </tr>
-                             <tr>
-                                <td>Creación de podcast o cápsulas audiovisuales para redes sociales sobre cada sesión del Consejo Asesor.</td>
-                                <td>Consejo Asesor</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
-
-        </div>
-    </main>
-
-    <footer>
-        <p>Consejo Asesor por parte de la Sociedad Civil | Unidad de Búsqueda de Personas dadas por Desaparecidas (UBPD) | Colombia 2025</p>
+    <footer class="footer">
+        <p>&copy; 2024 Consejo Asesor UBPD. Un recurso interactivo para la transparencia y el seguimiento.</p>
     </footer>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Datos del Plan de Trabajo (sin 'tarea')
+        const planData = [
+            {
+                "linea": "1. Ajuste normativo institucional",
+                "temas": [
+                    { "tema": "Incidencia para agilizar la modificación del DL589/2017. Proyecto de Ley #37 de 2024", "actividades": [
+                            { "actividad": "1. Presentación de ponencia en el congreso (Presidentes)", "indicador": "1. Una ponencia radicada ante el Congreso", "verificacion": "1. Documento radicado con sello oficial", "frecuencia": "1. Una vez", "responsable": "1. Juan Villalba MinJusticia, Ministerio del Interior Yomaira. Gloria Cuartas, Lourdes Castro" },
+                            { "actividad": "2. Mesas de trabajo con la UTL - Comisión de DDHH del Congreso (Sociedad Civil CA)", "indicador": "2. Número de mesas realizadas", "verificacion": "2. Actas y listas de asistencia", "frecuencia": "2. Semestral", "responsable": "2. Juan Villalba MinJusticia, Ministerio del Interior Yomaira. Gloria Cuartas, Lourdes Castro" }
+                        ]},
+                    { "tema": "Definición de persona buscadora", "actividades": [
+                            { "actividad": "1. Elaboración del concepto de Persona buscadora para ser presentado en el marco de la ley 2421 de 2024.", "indicador": "1. Radicación del documento ante Corte", "verificacion": "1. Documento con sello de radicado oficial", "frecuencia": "1. Una vez", "responsable": "1. Juan Villalba Min Justicia, Jomary Ortegón Ministerio del Interior, UARIV y UBPD" }
+                        ]}
+                ]},
+            { "linea": "2. Fortalecimiento y Articulación para la búsqueda", "temas": [
+                    { "tema": "Atención y acompañamiento Psicosocial.", "actividades": [
+                            { "actividad": "1. Mesas de trabajo territorial con el MSPS para la creación de una linea del PAPSIVI enfocado en atención Integral en salud y Atención psicosocial para victimas de DF...", "indicador": "1. Documento técnico elaborado por el MSPS y el Consejo Asesor y Mesas de trabajo realizadas (8)", "verificacion": "1. Actas, minutas, propuesta entregada", "frecuencia": "1. Trimestral", "responsable": "1. Maritza Isaza y Leandro Rios y Consejo Asesor" },
+                            { "actividad": "2. Seguimiento a la Política Pública Nacional de Atención Psicosocial y en Salud para la Reparación Integral...", "indicador": "2. Informes de seguimiento elaborados por el MSPS", "verificacion": "2. Informes técnicos", "frecuencia": "2. Semestral", "responsable": "2. Maritza Isaza y Leandro Rios" }
+                        ]},
+                    { "tema": "Lineamientos de Participación para la búsqueda.", "actividades": [
+                            { "actividad": "1. Revisión de los Lineamientos para la formulación e implementación de los planes regionales de búsqueda", "indicador": "1. Documento de recomendaciones elaborado por el Consejo Asesor Sociedad Civil", "verificacion": "1. Informe validado por el Consejo Asesor", "frecuencia": "1. Una vez", "responsable": "1. Gloria Galindez y Carlos Zapata UBPD" },
+                            { "actividad": "2. Revisión de los lineamientos para la participación y enfoques diferenciales", "indicador": "2. Documento de recomendaciones elaborado por el Consejo Asesor Sociedad Civil", "verificacion": "2. Informe validado por el Consejo Asesor", "frecuencia": "2. Una vez", "responsable": "2. UBPD" },
+                            { "actividad": "3. Socialización de los enfoque diferenciales y los avances técnico forenses para el Consejo Asesor", "indicador": "3. Número de sesiones realizadas", "verificacion": "3. Listas de asistencia y relatorías", "frecuencia": "3. Semestral", "responsable": "3. DTCVED - DTPRI" }
+                        ]}
+                ]},
+            { "linea": "3. Registro e Interoperabilidad", "temas": [
+                    { "tema": "Acceso a información relevante para la búsqueda", "actividades": [
+                            { "actividad": "1. Solicitud de los avances del modulo para la paz. Interoperabilidad.", "indicador": "1. Documento recibido con avances del modulo para la Paz.", "verificacion": "1. Oficio de respuesta institucional de la UARIV-UBPD", "frecuencia": "1. Una vez", "responsable": "1. UARIV -Delegadxs - UBPD" },
+                            { "actividad": "2. Concertar espacios de dialogo para la creación de una aplicación que permita conocer el avance de la busqueda humanitaria y extrajudicial", "indicador": "2. Propuesta de aplicación desarrollada por la UBPD", "verificacion": "2. Documento técnico del diseño", "frecuencia": "2. Una Vez", "responsable": "2. UBPD - Gabriel Burbano - Ramón Valenzuela" }
+                        ]}
+                ]},
+            { "linea": "4. Participación en instancias de Dialogo y concertación", "temas": [
+                    { "tema": "Mesa de Dialogo de Paz Total", "actividades": [
+                            { "actividad": "1. Espacios de dialogo con la Unidad de Implementación y consejeria presidencial para justificar la participación del Consejo Asesor en la Paz Total", "indicador": "1. Número de espacios...", "verificacion": "1. Documento con la justificación", "frecuencia": "1. Una vez", "responsable": "1. Lourdes Castro y Gloria Cuartas" },
+                            { "actividad": "2. Solicitarle al comisionado de paz la inclusion del Consejo Asesor en la mesas de dialogos de paz.", "indicador": "2. Documento radicado\n3. Representante designado", "verificacion": "2. Acuse de recibo o respuesta\n3. Resolución o carta oficial", "frecuencia": "2. Una vez\n3. Una vez", "responsable": "2. Lourdes Castro y Gloria Cuartas" }
+                        ]},
+                    { "tema": "Consejo Asesor en la comisión asesora del SNB", "actividades": [
+                            { "actividad": "1. Enviar una comunicación al Ministro de Justicia...", "indicador": "1. Representante designado", "verificacion": "1. Resolución o carta oficial", "frecuencia": "1. Una vez", "responsable": "1. UBPD - ST" },
+                            { "actividad": "2. Generar un espacio de incidencia con el Ministro de Justicia", "indicador": "2.Representante designado", "verificacion": "2. Resolución o carta oficial", "frecuencia": "2. Una vez", "responsable": "2. Juan Villalba MinJusticia" }
+                        ]}
+                ]},
+            { "linea": "Transversal: Comunicación y Pedagogía", "temas": [
+                    { "tema": "", "actividades": [
+                            { "actividad": "1. Creación de un podcast para trasmitir información sobre la modificación al DL 589/2017", "indicador": "1. Número de episodios publicados", "verificacion": "1. Enlaces a plataformas (Spotify, etc.)", "frecuencia": "1. Bimestral", "responsable": "1. Consejo Asesor" },
+                            { "actividad": "2. Creación de piezas audiovisuales sobre el manejo de cementerios...", "indicador": "2. Número de piezas producidas y compartidas", "verificacion": "2. Registro audiovisual y métricas", "frecuencia": "2. Trimestral", "responsable": "Equipo de Comunicaciones" },
+                            { "actividad": "3. Posicionar la Desaparición Forzada en los debates presidenciales.", "indicador": "3. Número de menciones en medios/debates", "verificacion": "3. Clipping de prensa, grabaciones", "frecuencia": "3. Según calendario electoral", "responsable": "Comité de Incidencia" },
+                            { "actividad": "4. Podcast (audiovisuales) sobre cada uno de las sesiones del Consejo Asesor...", "indicador": "4. Número de episodios grabados por sesión", "verificacion": "4. Publicaciones en redes o plataformas", "frecuencia": "4. Posterior a cada sesión", "responsable": "1. Consejo Asesor" }
+                        ]}
+                ]}
+        ];
+
+        const tbody = document.getElementById('plan-tbody');
+        const searchInput = document.getElementById('search-input');
+        const noResultsContainer = document.getElementById('no-results-container');
+        
+        function updateStats(data) {
+            const statLineas = document.getElementById('stat-lineas');
+            const statTemas = document.getElementById('stat-temas');
+            const statActividades = document.getElementById('stat-actividades');
+            let temasCount = 0;
+            let actividadesCount = 0;
+            data.forEach(linea => {
+                temasCount += linea.temas.length;
+                linea.temas.forEach(tema => {
+                    actividadesCount += tema.actividades.length;
+                });
+            });
+            statLineas.textContent = data.length;
+            statTemas.textContent = temasCount;
+            statActividades.textContent = actividadesCount;
+        }
+
+        function renderTable(data) {
+            let tableHtml = '';
+            data.forEach(linea => {
+                let isFirstRowForLinea = true;
+                const lineaRowspan = linea.temas.reduce((acc, tema) => acc + tema.actividades.length, 0);
+
+                linea.temas.forEach(tema => {
+                    let isFirstRowForTema = true;
+                    const temaRowspan = tema.actividades.length;
+
+                    tema.actividades.forEach(actividad => {
+                        tableHtml += '<tr>';
+                        if (isFirstRowForLinea) {
+                            tableHtml += `<td rowspan="${lineaRowspan}" data-label="Línea Estratégica">${linea.linea}</td>`;
+                            isFirstRowForLinea = false;
+                        }
+                        if (isFirstRowForTema) {
+                            tableHtml += `<td rowspan="${temaRowspan}" data-label="Tema">${tema.tema || 'Actividades Generales'}</td>`;
+                            isFirstRowForTema = false;
+                        }
+                        tableHtml += `<td data-label="Actividad">${actividad.actividad}</td>`;
+                        tableHtml += `<td data-label="Indicadores">${actividad.indicador.replace(/\n/g, '<br>')}</td>`;
+                        tableHtml += `<td data-label="Verificación">${actividad.verificacion.replace(/\n/g, '<br>')}</td>`;
+                        tableHtml += `<td data-label="Frecuencia">${actividad.frecuencia.replace(/\n/g, '<br>')}</td>`;
+                        tableHtml += `<td data-label="Responsables">${actividad.responsable || 'N/A'}</td>`;
+                        tableHtml += '</tr>';
+                    });
+                });
+            });
+            tbody.innerHTML = tableHtml;
+        }
+        
+        function filterTable() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const rows = tbody.getElementsByTagName('tr');
+            let visibleRows = 0;
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const rowText = row.textContent.toLowerCase();
+                if (rowText.includes(searchTerm)) {
+                    row.style.display = '';
+                    visibleRows++;
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+            noResultsContainer.style.display = visibleRows === 0 ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', filterTable);
+
+        // Initial Render
+        updateStats(planData);
+        renderTable(planData);
+    });
+    </script>
 </body>
 </html>
